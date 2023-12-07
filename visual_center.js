@@ -26,59 +26,16 @@ class ScreenCenter {
         elem.style.width = '100%';
         return elem;
     }
-    createCol() {
-        let col = document.createElement('div');
-        col.style.flex = '1';
-        col.style.display = 'flex';
-        col.style.flexDirection = 'column';
-        return col;
-    }
-    createRow() {
-        let row = document.createElement('div');
-        row.style.flex = '1';
-        row.style.display = 'flex';
-        return row;
-    }
-    createBaseGrid() {
-        let col1 = this.createCol();
-        col1.style.height = '100%';
-
-        let col1Row1 = this.createRow();
-        col1Row1.style.border = '1px solid ' + this.color;
-
-        let col1Row2 = this.createRow();
-        col1Row2.style.border = '1px solid ' + this.color;
-
-        col1.appendChild(col1Row1);
-        col1.appendChild(col1Row2);
-
-        let col2 = this.createCol();
-        col2.style.height = '100%';
-
-        let col2Row1 = this.createRow();
-        col2Row1.style.border = '1px solid ' + this.color;
-
-        let col2Row2 = this.createRow();
-        col1Row2.style.border = '1px solid ' + this.color;
-
-        col1.appendChild(col1Row1);
-        col1.appendChild(col1Row2);
-
-        col2.appendChild(col2Row1);
-        col2.appendChild(col2Row2);
-
-        this.ctn.appendChild(col1);
-        this.ctn.appendChild(col2);
-    }
-    createGrid(rows, cols) {
+    createGrid(cols, rows) {
         this.v = this.create(this.vertical);
         this.ctn.appendChild(this.v);
         this.h = this.create(this.horizontal);
         this.ctn.appendChild(this.h);
 
-        this.createBaseGrid();
-
-        this.ctn.style.backgroundImage = 'linear-gradient(#000000 0.5px, transparent 0.5px, transparent calc(100% - 0.5px), #000000 calc(100% - 0.5px)), linear-gradient(90deg, #000000 0.5px, transparent 0.5px, transparent calc(100% - 0.5px), #000000 calc(100% - 0.5px))';
+        this.ctn.style.backgroundImage = `
+        linear-gradient(#000000 0.5px, transparent 0.5px, transparent calc(100% - 0.5px), #000000 calc(100% - 0.5px)),
+        linear-gradient(90deg, #000000 0.5px, transparent 0.5px, transparent calc(100% - 0.5px),
+        #000000 calc(100% - 0.5px))`;
         this.ctn.style.backgroundSize = '25% 25%';
         this.ctn.style.border = '0.5px solid ' + this.color;
 
